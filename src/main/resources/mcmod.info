@@ -1,0 +1,16 @@
+[
+{
+  "modid": "learn",
+  "name": "Learn",
+  "description": "A Minecraft mod used for learning purposes.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Jean Glassmaker"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
