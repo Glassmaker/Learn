@@ -134,25 +134,15 @@ public class RendererDoubleBlock implements ISimpleBlockRenderingHandler {
         float red100 = brightness100 * red;
         float green100 = brightness100 * green;
         float blue100 = brightness100 * blue;
-        float red50 = brightness50;
-        float red80 = brightness80;
-        float red60 = brightness60;
-        float green50 = brightness50;
-        float green80 = brightness80;
-        float green60 = brightness60;
-        float blue50 = brightness50;
-        float blue80 = brightness80;
-        float blue60 = brightness60;
-
-        red50 = brightness50 * red;
-        red80 = brightness80 * red;
-        red60 = brightness60 * red;
-        green50 = brightness50 * green;
-        green80 = brightness80 * green;
-        green60 = brightness60 * green;
-        blue50 = brightness50 * blue;
-        blue80 = brightness80 * blue;
-        blue60 = brightness60 * blue;
+        float red50 = brightness50 * red;
+        float red80 = brightness80 * red;
+        float red60 = brightness60 * red;
+        float green50 = brightness50 * green;
+        float green80 = brightness80 * green;
+        float green60 = brightness60 * green;
+        float blue50 = brightness50 * blue;
+        float blue80 = brightness80 * blue;
+        float blue60 = brightness60 * blue;
 
         int brightness = block.getMixedBrightnessForBlock(world, x, y, z);
         int bgBrightness = 15728880;
