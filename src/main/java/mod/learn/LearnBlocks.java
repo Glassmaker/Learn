@@ -8,6 +8,7 @@ import mod.learn.blocks.BlockLearnDeco;
 import mod.learn.blocks.BlockLearnOre;
 import mod.learn.items.ItemBlockMulti;
 import mod.learn.misc.LearnRef;
+import mod.learn.tileentities.TileEntityGate;
 
 public class LearnBlocks {
 
@@ -79,5 +80,9 @@ public class LearnBlocks {
         GameRegistry.registerBlock(wither, ItemBlockMulti.class, "wither");
 
         GameRegistry.registerBlock(gate, "gate");
+
+
+        GameRegistry.registerTileEntity(TileEntityGate.class, LearnRef.MODID + ":gate");
+
     }
 }
