@@ -5,8 +5,19 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileEntityGate extends TileEntity {
+
+    private ForgeDirection facingDirection = ForgeDirection.UP;
+
+    public void setFacing(ForgeDirection facing) {
+        this.facingDirection = facing;
+    }
+
+    public ForgeDirection getFacing() {
+        return this.facingDirection;
+    }
 
     @Override
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
@@ -25,11 +36,15 @@ public class TileEntityGate extends TileEntity {
     @Override
     public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
+
+        this.facingDirection = ForgeDirection.getOrientation(nbt.getByte("facing"));
     }
 
     @Override
     public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
+
+        nbt.setByte("facing", (byte) facingDirection.ordinal());
     }
 
 }
