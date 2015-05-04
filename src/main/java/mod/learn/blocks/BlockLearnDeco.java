@@ -7,9 +7,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import mod.learn.misc.LearnRef;
 
 public class BlockLearnDeco extends BlockBase {
+
+    @Override
+    public int damageDropped(int meta) {
+        return meta;
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -21,6 +27,7 @@ public class BlockLearnDeco extends BlockBase {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public int getBgColorMultiplier(int meta) {
         return LearnRef.COLOURS[meta % LearnRef.COLOURS.length];
     }

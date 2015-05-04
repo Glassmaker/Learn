@@ -11,6 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import mod.learn.LearnItems;
 import mod.learn.LearnTabs;
 import mod.learn.misc.LearnRef;
@@ -29,6 +30,11 @@ public class BlockLearnOre extends BlockBase {
     @Override
     public int quantityDropped(Random random) {
         return 2;
+    }
+
+    @Override
+    public int damageDropped(int meta) {
+        return meta;
     }
 
     @Override
