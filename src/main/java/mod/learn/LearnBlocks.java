@@ -3,6 +3,7 @@ package mod.learn;
 import net.minecraft.block.Block;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import mod.learn.blocks.BlockGate;
 import mod.learn.blocks.BlockLearnDeco;
 import mod.learn.blocks.BlockLearnOre;
 import mod.learn.items.ItemBlockMulti;
@@ -22,6 +23,8 @@ public class LearnBlocks {
     public static Block shell;
     public static Block stand;
     public static Block wither;
+
+    public static Block gate;
 
     public static void init() {
         LearnBlocks.bricksBig =
@@ -59,6 +62,8 @@ public class LearnBlocks {
                 new BlockLearnDeco().setBlockName(LearnRef.MODID + ".wither").setBlockTextureName(
                         LearnRef.MODID + ":base_wither");
 
+        LearnBlocks.gate = new BlockGate();
+
 
         GameRegistry.registerBlock(bricksBig, ItemBlockMulti.class, "bricksBig");
         GameRegistry.registerBlock(bricksSmall, ItemBlockMulti.class, "bricksSmall");
@@ -72,5 +77,7 @@ public class LearnBlocks {
         GameRegistry.registerBlock(shell, ItemBlockMulti.class, "shell");
         GameRegistry.registerBlock(stand, ItemBlockMulti.class, "stand");
         GameRegistry.registerBlock(wither, ItemBlockMulti.class, "wither");
+
+        GameRegistry.registerBlock(gate, "gate");
     }
 }
