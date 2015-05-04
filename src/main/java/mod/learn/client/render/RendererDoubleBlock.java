@@ -126,151 +126,151 @@ public class RendererDoubleBlock implements ISimpleBlockRenderingHandler {
 
         renderer.enableAO = false;
         Tessellator tessellator = Tessellator.instance;
-        boolean flag = false;
-        float f3 = 0.5F;
-        float f4 = 1.0F;
-        float f5 = 0.8F;
-        float f6 = 0.6F;
-        float f7 = f4 * red;
-        float f8 = f4 * green;
-        float f9 = f4 * blue;
-        float f10 = f3;
-        float f11 = f5;
-        float f12 = f6;
-        float f13 = f3;
-        float f14 = f5;
-        float f15 = f6;
-        float f16 = f3;
-        float f17 = f5;
-        float f18 = f6;
+        boolean rendered = false;
+        float brightness50 = 0.5F;
+        float brightness100 = 1.0F;
+        float brightness80 = 0.8F;
+        float brightness60 = 0.6F;
+        float red100 = brightness100 * red;
+        float green100 = brightness100 * green;
+        float blue100 = brightness100 * blue;
+        float red50 = brightness50;
+        float red80 = brightness80;
+        float red60 = brightness60;
+        float green50 = brightness50;
+        float green80 = brightness80;
+        float green60 = brightness60;
+        float blue50 = brightness50;
+        float blue80 = brightness80;
+        float blue60 = brightness60;
 
-        f10 = f3 * red;
-        f11 = f5 * red;
-        f12 = f6 * red;
-        f13 = f3 * green;
-        f14 = f5 * green;
-        f15 = f6 * green;
-        f16 = f3 * blue;
-        f17 = f5 * blue;
-        f18 = f6 * blue;
+        red50 = brightness50 * red;
+        red80 = brightness80 * red;
+        red60 = brightness60 * red;
+        green50 = brightness50 * green;
+        green80 = brightness80 * green;
+        green60 = brightness60 * green;
+        blue50 = brightness50 * blue;
+        blue80 = brightness80 * blue;
+        blue60 = brightness60 * blue;
 
-        int l = block.getMixedBrightnessForBlock(world, x, y, z);
-        int bgBrightnes = 15728880;
+        int brightness = block.getMixedBrightnessForBlock(world, x, y, z);
+        int bgBrightness = 15728880;
 
         IIcon icon;
 
         if (renderer.renderAllFaces
                 || block.shouldSideBeRendered(renderer.blockAccess, x, y - 1, z, 0)) {
 
-            tessellator.setBrightness(bgBrightnes);
+            tessellator.setBrightness(bgBrightness);
 
             tessellator.setColorOpaque_F(bgRed, bgGreen, bgBlue);
             icon = renderer.getIconSafe(((BlockBase) block).getBackgroundIcon());
             renderer.renderFaceYNeg(block, x, y, z, icon);
 
-            tessellator.setBrightness(renderer.renderMinY > 0.0D ? l : block
+            tessellator.setBrightness(renderer.renderMinY > 0.0D ? brightness : block
                     .getMixedBrightnessForBlock(renderer.blockAccess, x, y - 1, z));
 
-            tessellator.setColorOpaque_F(f10, f13, f16);
+            tessellator.setColorOpaque_F(red50, green50, blue50);
             icon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 0);
             renderer.renderFaceYNeg(block, x, y, z, icon);
-            flag = true;
+            rendered = true;
         }
 
         if (renderer.renderAllFaces
                 || block.shouldSideBeRendered(renderer.blockAccess, x, y + 1, z, 1)) {
 
-            tessellator.setBrightness(bgBrightnes);
+            tessellator.setBrightness(bgBrightness);
 
             tessellator.setColorOpaque_F(bgRed, bgGreen, bgBlue);
             icon = renderer.getIconSafe(((BlockBase) block).getBackgroundIcon());
             renderer.renderFaceYPos(block, x, y, z, icon);
 
-            tessellator.setBrightness(renderer.renderMaxY < 1.0D ? l : block
+            tessellator.setBrightness(renderer.renderMaxY < 1.0D ? brightness : block
                     .getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z));
 
-            tessellator.setColorOpaque_F(f7, f8, f9);
+            tessellator.setColorOpaque_F(red100, green100, blue100);
             icon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 1);
             renderer.renderFaceYPos(block, x, y, z, icon);
-            flag = true;
+            rendered = true;
         }
 
         if (renderer.renderAllFaces
                 || block.shouldSideBeRendered(renderer.blockAccess, x, y, z - 1, 2)) {
 
-            tessellator.setBrightness(bgBrightnes);
+            tessellator.setBrightness(bgBrightness);
 
             tessellator.setColorOpaque_F(bgRed, bgGreen, bgBlue);
             icon = renderer.getIconSafe(((BlockBase) block).getBackgroundIcon());
             renderer.renderFaceZNeg(block, x, y, z, icon);
 
-            tessellator.setBrightness(renderer.renderMinZ > 0.0D ? l : block
+            tessellator.setBrightness(renderer.renderMinZ > 0.0D ? brightness : block
                     .getMixedBrightnessForBlock(renderer.blockAccess, x, y, z - 1));
 
-            tessellator.setColorOpaque_F(f11, f14, f17);
+            tessellator.setColorOpaque_F(red80, green80, blue80);
             icon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 2);
             renderer.renderFaceZNeg(block, x, y, z, icon);
-            flag = true;
+            rendered = true;
         }
 
         if (renderer.renderAllFaces
                 || block.shouldSideBeRendered(renderer.blockAccess, x, y, z + 1, 3)) {
 
-            tessellator.setBrightness(bgBrightnes);
+            tessellator.setBrightness(bgBrightness);
 
             tessellator.setColorOpaque_F(bgRed, bgGreen, bgBlue);
             icon = renderer.getIconSafe(((BlockBase) block).getBackgroundIcon());
             renderer.renderFaceZPos(block, x, y, z, icon);
 
-            tessellator.setBrightness(renderer.renderMaxZ < 1.0D ? l : block
+            tessellator.setBrightness(renderer.renderMaxZ < 1.0D ? brightness : block
                     .getMixedBrightnessForBlock(renderer.blockAccess, x, y, z + 1));
 
-            tessellator.setColorOpaque_F(f11, f14, f17);
+            tessellator.setColorOpaque_F(red80, green80, blue80);
             icon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 3);
             renderer.renderFaceZPos(block, x, y, z, icon);
 
-            flag = true;
+            rendered = true;
         }
 
         if (renderer.renderAllFaces
                 || block.shouldSideBeRendered(renderer.blockAccess, x - 1, y, z, 4)) {
 
-            tessellator.setBrightness(bgBrightnes);
+            tessellator.setBrightness(bgBrightness);
 
             tessellator.setColorOpaque_F(bgRed, bgGreen, bgBlue);
             icon = renderer.getIconSafe(((BlockBase) block).getBackgroundIcon());
             renderer.renderFaceXNeg(block, x, y, z, icon);
 
-            tessellator.setBrightness(renderer.renderMinX > 0.0D ? l : block
+            tessellator.setBrightness(renderer.renderMinX > 0.0D ? brightness : block
                     .getMixedBrightnessForBlock(renderer.blockAccess, x - 1, y, z));
 
-            tessellator.setColorOpaque_F(f12, f15, f18);
+            tessellator.setColorOpaque_F(red60, green60, blue60);
             icon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 4);
             renderer.renderFaceXNeg(block, x, y, z, icon);
 
-            flag = true;
+            rendered = true;
         }
 
         if (renderer.renderAllFaces
                 || block.shouldSideBeRendered(renderer.blockAccess, x + 1, y, z, 5)) {
 
-            tessellator.setBrightness(bgBrightnes);
+            tessellator.setBrightness(bgBrightness);
 
             tessellator.setColorOpaque_F(bgRed, bgGreen, bgBlue);
             icon = renderer.getIconSafe(((BlockBase) block).getBackgroundIcon());
             renderer.renderFaceXPos(block, x, y, z, icon);
 
-            tessellator.setBrightness(renderer.renderMaxX < 1.0D ? l : block
+            tessellator.setBrightness(renderer.renderMaxX < 1.0D ? brightness : block
                     .getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z));
 
-            tessellator.setColorOpaque_F(f12, f15, f18);
+            tessellator.setColorOpaque_F(red60, green60, blue60);
             icon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 5);
             renderer.renderFaceXPos(block, x, y, z, icon);
 
-            flag = true;
+            rendered = true;
         }
 
-        return flag;
+        return rendered;
 
     }
 
