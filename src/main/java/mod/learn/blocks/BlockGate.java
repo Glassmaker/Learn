@@ -5,6 +5,7 @@ import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -39,6 +40,21 @@ public class BlockGate extends BlockContainer {
         TileEntityGate gate = (TileEntityGate) world.getTileEntity(x, y, z);
 
         gate.setFacing(ForgeDirection.getOrientation(direction));
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player,
+            int side, float distanceX, float distanceY, float distanceZ) {
+
+        if (world.isRemote)
+            return true;
+
+        TileEntityGate gate = (TileEntityGate) world.getTileEntity(x, y, z);
+
+        gate.isStructreVaild();
+
+        return true;
+
     }
 
     @Override
