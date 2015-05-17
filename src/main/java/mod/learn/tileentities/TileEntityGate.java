@@ -13,9 +13,11 @@ public class TileEntityGate extends TileEntity {
     private static final int MAX_SIZE = 16;
     private ForgeDirection facingDirection = ForgeDirection.UP;
 
-    int length = 0; // x-axis
-    int depth = 0; // z-axis
-    int height = 0; // y-axis
+    private int length = 0; // x-axis
+    private int depth = 0; // z-axis
+    private int height = 0; // y-axis
+
+    private int[] cornerCoords = new int[3];
 
     public void setFacing(ForgeDirection facing) {
         this.facingDirection = facing;
