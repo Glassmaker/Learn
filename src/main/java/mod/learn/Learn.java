@@ -35,6 +35,7 @@ public class Learn {
         LearnTabs.init();
 
         proxy.registerBlockRenderers();
+        proxy.registerTileEntityRenderers();
     }
 
     @Mod.EventHandler

@@ -4,11 +4,13 @@ import net.minecraft.block.Block;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import mod.learn.blocks.BlockGate;
+import mod.learn.blocks.BlockHouse;
 import mod.learn.blocks.BlockLearnDeco;
 import mod.learn.blocks.BlockLearnOre;
 import mod.learn.items.ItemBlockMulti;
 import mod.learn.misc.LearnRef;
 import mod.learn.tileentities.TileEntityGate;
+import mod.learn.tileentities.TileEntityHouse;
 
 public class LearnBlocks {
 
@@ -26,6 +28,8 @@ public class LearnBlocks {
     public static Block wither;
 
     public static Block gate;
+
+    public static Block house;
 
     public static void init() {
         LearnBlocks.bricksBig =
@@ -65,6 +69,8 @@ public class LearnBlocks {
 
         LearnBlocks.gate = new BlockGate();
 
+        LearnBlocks.house = new BlockHouse();
+
 
         GameRegistry.registerBlock(bricksBig, ItemBlockMulti.class, "bricksBig");
         GameRegistry.registerBlock(bricksSmall, ItemBlockMulti.class, "bricksSmall");
@@ -81,8 +87,11 @@ public class LearnBlocks {
 
         GameRegistry.registerBlock(gate, "gate");
 
+        GameRegistry.registerBlock(house, "house");
+
 
         GameRegistry.registerTileEntity(TileEntityGate.class, LearnRef.MODID + ":gate");
+        GameRegistry.registerTileEntity(TileEntityHouse.class, LearnRef.MODID + ":house");
 
     }
 }

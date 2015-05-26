@@ -6,4 +6,10 @@ public class ServerProxy implements IProxy {
     public void registerBlockRenderers() {
         // no need
     }
+
+    @Override
+    public void registerTileEntityRenderers() {
+        // No need
+
+    }
 }
