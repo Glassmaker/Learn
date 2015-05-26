@@ -22,7 +22,7 @@ group= "mod.learn" // http://maven.apache.org/guides/mini/guide-naming-conventio
 archivesBaseName = "learn"
 
 minecraft {
-    version = "1.7.10-10.13.3.1395-1710ls"
+    version = "1.7.10-10.13.3.1408-1.7.10"
     runDir = "run"
 }
 
